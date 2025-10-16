@@ -96,6 +96,19 @@ end`
 	}
 	fmt.Printf("\n\n\n")
 
+	// no animals 
+	input = `asd124po23089sdgjkl2-09sdfg12123123fg
+end`
+
+	fmt.Printf("Данные:\n%s\n\n", input)
+	stream = strings.NewReader(input)
+	results = task1.AnimalFeeding(stream)
+
+	fmt.Println("Результаты кормления:")
+	for _, result := range results {
+		fmt.Println(result)
+	}
+	fmt.Printf("\n\n\n")
 	
 	// skip first row test
 	input = `
