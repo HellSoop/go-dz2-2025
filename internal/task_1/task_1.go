@@ -33,9 +33,11 @@ func parseStream(stream io.Reader) (string, []Animal) {
 
 func AnimalFeeding(stream io.Reader) ([]string) {
 	food, animals := parseStream(stream)
-
-	for i, c := range food {
+	i := 0 // in a for loop, the increment of i may be different from 1 due to unicode symbols
+	
+	for _, c := range food {
 		animals[i % len(animals)].Eat(c)
+		i++
 	}
 
 	result := []string{}
