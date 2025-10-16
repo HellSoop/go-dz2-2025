@@ -110,7 +110,7 @@ end`
 	}
 	fmt.Printf("\n\n\n")
 	
-	// skip first row test
+	// skip second row test
 	input = `
 
 dog Бобик
