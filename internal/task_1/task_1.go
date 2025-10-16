@@ -17,9 +17,17 @@ func parseStream(stream io.Reader) (string, []Animal) {
 	}
 
 	rows := strings.Split(string(full_data), "\n")
-	food := rows[0]
+	food := ""
 	
-	rows = rows[1:len(rows) - 1]
+	// so first row may be skipped (test "Пустая строка корма")
+	if len(rows[0]) == 0 && len(strings.Fields(rows[1])) != 3 {
+		food = rows[1]
+		rows = rows[2:len(rows) - 1]
+	} else {
+		food = rows[0]
+		rows = rows[1:len(rows) - 1]
+	}
+	
 	var current_data []string
 	animals := []Animal{}
 
