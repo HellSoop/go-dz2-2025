@@ -30,3 +30,18 @@ func parseStream(stream io.Reader) (string, []Animal) {
 
 	return food, animals
 }
+
+func AnimalFeeding(stream io.Reader) ([]string) {
+	food, animals := parseStream(stream)
+
+	for i, c := range food {
+		animals[i % len(animals)].Eat(c)
+	}
+
+	result := []string{}
+	for _, animal := range animals {
+		result = append(result, animal.name + " " + animal.WhatDidYouEat())
+	}
+
+	return result
+}
