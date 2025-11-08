@@ -2,6 +2,7 @@ package task1
 
 import "unicode"
 
+
 type Animal struct {
 	type_ string
 	name string
